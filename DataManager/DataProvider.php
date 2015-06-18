@@ -87,10 +87,11 @@ class DataProvider
             $user->setGender($graphData->getProperty('gender'));
             $user->setLocale($graphData->getProperty('locale'));
             $user->setEmail($graphData->getProperty('email'));
-            $user->setPassword($user->getFaceBookId());
+            $user->setPlainPassword($user->getFaceBookId());
             $user->setEnabled(true);
 
-
+            // Encoding of the plain password
+            $this->userManager->updatePassword($user);
             $this->userManager->updateUser($user);
         }
 
