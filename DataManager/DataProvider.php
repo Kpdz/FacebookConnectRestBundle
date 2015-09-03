@@ -85,6 +85,7 @@ class DataProvider
             $user->setFacebookId($graphData->getProperty('id'));
             $user->setUsername($graphData->getProperty('first_name'));
             $user->setGender($graphData->getProperty('gender'));
+            $user->setBirthdayDate(new \DateTime($graphData->getProperty('birthday')));
             $user->setLocale($graphData->getProperty('locale'));
             $user->setEmail($graphData->getProperty('email'));
             $user->setPlainPassword($user->getFaceBookId());
@@ -97,4 +98,5 @@ class DataProvider
 
         return $user;
     }
+
 }
