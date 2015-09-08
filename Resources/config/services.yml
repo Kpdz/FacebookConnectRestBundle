@@ -3,15 +3,20 @@ parameters:
         app_id: %kpdz_facebook.rest_server.app_id%
         secret_id: %kpdz_facebook.rest_server.secret_id%
     facebook_rest_server.parameters.permissions: %kpdz_facebook.rest_server.permissions%
-    facebook_rest_server.parameters.firewall: %kpdz_facebook.rest_server.firewall%
     facebook_rest_server.security.session_manager.class: "Kupids\Bundle\FaceBookRestServerBundle\Security\SessionManager"
+    facebook_rest_server.grant_type.facebook_id.class: "Kupids\Bundle\FaceBookRestServerBundle\Security\RestCredentialGrantExtension"
     facebook_rest_server.data_manager.data_provider.class: "Kupids\Bundle\FacebookRestServerBundle\DataManager\DataProvider"
     facebook_rest_server.user_manager.class: "Kupids\Bundle\FaceBookRestServerBundle\Doctrine\UserManager"
 
 services:
     facebook_rest_server.security.session:
         class: %facebook_rest_server.security.session_manager.class%
-        arguments: [%facebook_rest_server.parameters.auth%, @fos_user.security.login_manager, %facebook_rest_server.parameters.firewall%]
+        arguments: [%facebook_rest_server.parameters.auth%]
+    facebook_rest_server.grant_type.facebook_id:
+        class: %facebook_rest_server.grant_type.facebook_id.class%
+        tags:
+            - { name: fos_oauth_server.grant_extension, uri: "http://api.kupids.dev/aouth/token" }
+        arguments: [@facebook_rest_server.user_manager]
     facebook_rest_server.data_manager.data_provider:
         class: %facebook_rest_server.data_manager.data_provider.class%
         arguments: [@service_container, @facebook_rest_server.user_manager, %facebook_rest_server.parameters.permissions%]

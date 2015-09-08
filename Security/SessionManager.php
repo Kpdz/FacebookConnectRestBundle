@@ -3,9 +3,6 @@
 namespace Kupids\Bundle\FaceBookRestServerBundle\Security;
 
 use Facebook\FacebookSession;
-use FOS\UserBundle\Model\User;
-use FOS\UserBundle\Security\LoginManager;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class Session
@@ -24,25 +21,12 @@ class SessionManager
     private $authorization;
 
     /**
-     * @var LoginManager
+     * @param array $authorization
      */
-    private $loginManagers;
-
-    /**
-     * @var string
-     */
-    private $firewall;
-
-    /**
-     * @param array                $authorization
-     * @param LoginManager         $loginManagers
-     * @param                      $firewall
-     */
-    public function __construct(array $authorization, LoginManager $loginManagers, $firewall)
+    public function __construct(array $authorization)
     {
         $this->authorization = $authorization;
-        $this->loginManagers = $loginManagers;
-        $this->firewall      = $firewall;
+
     }
 
     /**
@@ -50,9 +34,7 @@ class SessionManager
      */
     protected function appSessionStart()
     {
-        FacebookSession::setDefaultApplication(
-            $this->authorization['app_id'],
-            $this->authorization['secret_id']);
+        FacebookSession::setDefaultApplication($this->authorization['app_id'], $this->authorization['secret_id']);
     }
 
     /**
@@ -72,15 +54,6 @@ class SessionManager
     public function getSession()
     {
         return $this->session;
-    }
-
-    /**
-     * @param User          $user
-     * @param Response|null $response
-     */
-    public function loginUser(User $user, Response $response = null)
-    {
-        $this->loginManagers->loginUser($this->firewall, $user, null);
     }
 
 }
