@@ -1,16 +1,16 @@
 <?php
 
-namespace Kupids\Bundle\FaceBookRestServerBundle\Security;
+namespace Kpdz\FacebookConnectRestBundle\Security;
 
 
 use FOS\OAuthServerBundle\Storage\GrantExtensionInterface;
-use Kupids\Bundle\FaceBookRestServerBundle\Doctrine\UserManager;
+use Kpdz\FacebookConnectRestBundle\Doctrine\UserManager;
 use OAuth2\Model\IOAuth2Client;
 use Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException;
 
 /**
  * Class RestCredentialGrantExtension
- * @package Kupids\Bundle\FaceBookRestServerBundle\Security
+ * @package Kpdz\FacebookConnectRestBundle\Security
  */
 class RestCredentialGrantExtension implements GrantExtensionInterface
 {
@@ -34,12 +34,12 @@ class RestCredentialGrantExtension implements GrantExtensionInterface
      * @param array         $inputData
      * @param array         $authHeaders
      * @return array
+     *
      */
     public function checkGrantExtension(IOAuth2Client $client, array $inputData, array $authHeaders)
     {
-
         if (!isset($inputData['facebook_id'])) {
-            return false;
+            throw new \InvalidArgumentException("facebook_id parameter missing!");
         }
 
         $user = $this->userManager->findUserByFacebookId($inputData['facebook_id']);
@@ -47,6 +47,6 @@ class RestCredentialGrantExtension implements GrantExtensionInterface
             return ['data' => $user];
         }
 
-        throw new AuthenticationCredentialsNotFoundException('Id provided not match with any user');
+        throw new AuthenticationCredentialsNotFoundException("Provided facebook ID doesn't match with any user");
     }
 }

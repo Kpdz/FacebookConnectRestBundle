@@ -1,17 +1,17 @@
 <?php
-namespace Kupids\Bundle\FacebookRestServerBundle\DataManager;
+namespace Kpdz\FacebookConnectRestBundle\DataManager;
 
 use Facebook\GraphObject;
 use FOS\UserBundle\Model\UserInterface;
-use Kupids\Bundle\FacebookRestServerBundle\Doctrine\UserManager;
-use Kupids\Bundle\FacebookRestServerBundle\Model\User;
-use Kupids\Bundle\FacebookRestServerBundle\Security\SessionManager;
+use Kpdz\FacebookConnectRestBundle\Doctrine\UserManager;
+use Kpdz\FacebookConnectRestBundle\Model\User;
+use Kpdz\FacebookConnectRestBundle\Security\SessionManager;
 use Symfony\Component\DependencyInjection\Container;
 use Facebook\FacebookRequest;
 
 /**
  * Class DataProvider
- * @package Kupids\Bundle\FacebookRestServerBundle\DataManager
+ * @package Kpdz\FacebookConnectRestBundle\DataManager
  */
 class DataProvider
 {

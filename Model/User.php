@@ -1,12 +1,12 @@
 <?php
-namespace Kupids\Bundle\FacebookRestServerBundle\Model;
+namespace Kpdz\FacebookConnectRestBundle\Model;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class User
- * @package Kupids\Bundle\FacebookRestServerBundle\Model
+ * @package Kpdz\FacebookConnectRestBundle\Model
  *
  * @ORM\MappedSuperclass
  * @ORM\HasLifecycleCallbacks

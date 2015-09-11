@@ -1,16 +1,16 @@
 <?php
 
-namespace Kupids\Bundle\FaceBookRestServerBundle\Doctrine;
+namespace Kpdz\FacebookConnectRestBundle\Doctrine;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use FOS\UserBundle\Doctrine\UserManager as BaseUserManager;
 use FOS\UserBundle\Util\CanonicalizerInterface;
-use Kupids\Bundle\FacebookRestServerBundle\Model\User;
+use Kpdz\FacebookConnectRestBundle\Model\User;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 
 /**
  * Class UserManager
- * @package Kupids\Bundle\FacebookRestServerBundle\Doctrine
+ * @package Kpdz\FacebookConnectRestBundle\Doctrine
  */
 class UserManager extends BaseUserManager
 {

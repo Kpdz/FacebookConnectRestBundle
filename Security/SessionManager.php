@@ -1,12 +1,12 @@
 <?php
 
-namespace Kupids\Bundle\FaceBookRestServerBundle\Security;
+namespace Kpdz\FacebookConnectRestBundle\Security;
 
 use Facebook\FacebookSession;
 
 /**
  * Class Session
- * @package Kupids\Bundle\FacebookRestServerBundle\Security
+ * @package Kpdz\FacebookConnectRestBundle\Security
  */
 class SessionManager
 {
