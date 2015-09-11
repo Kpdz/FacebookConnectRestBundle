@@ -1,6 +1,6 @@
 <?php
 
-namespace Kupids\Bundle\FacebookRestServerBundle\Tests\Controller;
+namespace Kpdz\FacebookConnectRestBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

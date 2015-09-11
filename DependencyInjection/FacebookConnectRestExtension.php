@@ -1,6 +1,6 @@
 <?php
 
-namespace Kupids\Bundle\FacebookRestServerBundle\DependencyInjection;
+namespace Kpdz\FacebookConnectRestBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -12,9 +12,9 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class FacebookRestServerExtension extends Extension
+class FacebookConnectRestExtension extends Extension
 {
-    const PREFIX = 'kpdz_facebook.rest_server';
+    const PREFIX = 'kpds_facebook.rest';
 
     /**
      * {@inheritdoc}

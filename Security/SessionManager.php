@@ -1,13 +1,12 @@
 <?php
 
-namespace Kupids\Bundle\FaceBookRestServerBundle\Security;
+namespace Kpdz\FacebookConnectRestBundle\Security;
 
 use Facebook\FacebookSession;
-use Symfony\Component\DependencyInjection\Container;
 
 /**
  * Class Session
- * @package Kupids\Bundle\FacebookRestServerBundle\Security
+ * @package Kpdz\FacebookConnectRestBundle\Security
  */
 class SessionManager
 {
@@ -17,29 +16,30 @@ class SessionManager
     private $session;
 
     /**
-     * @var int
+     * @var array
      */
-    private $app_id;
-
-    /**
-     * @var string
-     */
-    private $secret_id;
+    private $authorization;
 
     /**
      * @param array $authorization
      */
     public function __construct(array $authorization)
     {
-        $this->app_id    = $authorization['app_id'];
-        $this->secret_id = $authorization['secret_id'];
+        $this->authorization = $authorization;
+
     }
 
+    /**
+     * Initialize a Facebook session
+     */
     protected function appSessionStart()
     {
-        FacebookSession::setDefaultApplication($this->app_id, $this->secret_id);
+        FacebookSession::setDefaultApplication($this->authorization['app_id'], $this->authorization['secret_id']);
     }
 
+    /**
+     * @param $userToken
+     */
     public function userSessionStart($userToken)
     {
         if ($userToken) {
@@ -48,6 +48,9 @@ class SessionManager
         }
     }
 
+    /**
+     * @return FacebookSession
+     */
     public function getSession()
     {
         return $this->session;

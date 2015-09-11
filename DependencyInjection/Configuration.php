@@ -1,6 +1,6 @@
 <?php
 
-namespace Kupids\Bundle\FacebookRestServerBundle\DependencyInjection;
+namespace Kpdz\FacebookConnectRestBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode    = $treeBuilder->root('facebook_rest_server');
+        $rootNode    = $treeBuilder->root('facebook_connect_rest_server');
 
         $rootNode
             ->children()
@@ -27,6 +27,10 @@ class Configuration implements ConfigurationInterface
                     ->cannotBeEmpty()
                     ->end()
                 ->scalarNode('secret_id')
+                    ->isRequired()
+                    ->cannotBeEmpty()
+                    ->end()
+                ->scalarNode('firewall')
                     ->isRequired()
                     ->cannotBeEmpty()
                     ->end()
