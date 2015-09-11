@@ -1,5 +1,5 @@
 {
-    "name": "kpdz/facebook-connect-restBundle",
+    "name": "kpdz/facebook-connect-rest-bundle",
     "type": "symfony-bundle",
     "description": "",
     "keywords": ["rest", "facebook", "api", "user", "loggin"],
