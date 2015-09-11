@@ -1,0 +1,32 @@
+{
+    "name": "kpdz/facebook-connect-restBundle",
+    "type": "symfony-bundle",
+    "description": "",
+    "keywords": ["rest", "facebook", "api", "user", "loggin"],
+    "homepage": "",
+    "license": "MIT",
+    "authors": [
+        { "name": "Kupidz community", "homepage": "" }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "~2.3",
+        "symfony/console": "~2.1",
+        "symfony/form": "~2.1",
+        "symfony/property-access": "~2.3",
+        "ruflin/elastica": ">=0.90.10.0, <2.2-dev",
+        "psr/log": "~1.0"
+    },
+    "require-dev":{
+        "doctrine/orm": "~2.4",
+        "doctrine/doctrine-bundle": "~1.2",
+        "jms/serializer-bundle": "@stable",
+        "phpunit/phpunit": "~4.1",
+        "propel/propel1": "1.6.*"
+    },
+    "autoload": {
+        "psr-4": { "Kpdz\\FacebookConnectRestBundle\\": "" }
+    },
+    "extra": {
+    }
+}
